@@ -18,6 +18,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import RootNavigate  from './src/router/RootNavigator.router';
+import { DEEP_GRAY, WHITE_SMOKE } from './src/shared/constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,14 +26,13 @@ function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? DEEP_GRAY : WHITE_SMOKE,
     flex:1
   };
 
   return (
-    <SafeAreaProvider style={backgroundStyle}>
+    <SafeAreaProvider>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
         <NavigationContainer>
