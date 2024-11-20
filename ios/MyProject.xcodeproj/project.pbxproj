@@ -15,6 +15,10 @@
 		5F5C750FD7CDB7A3E13FFC41 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-MyProject-MyProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MyProject-MyProjectTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EC3C11E12CEE835B0024FFEB /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC3C11E02CEE835B0024FFEB /* Nunito-Regular.ttf */; };
+		EC3C11E22CEE835B0024FFEB /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC3C11DF2CEE835B0024FFEB /* Nunito-Light.ttf */; };
+		EC3C11E32CEE835B0024FFEB /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC3C11DE2CEE835B0024FFEB /* Nunito-Bold.ttf */; };
+		EC3C11E52CEE84900024FFEB /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC3C11E42CEE84900024FFEB /* Nunito-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-MyProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MyProject/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-MyProject-MyProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject-MyProjectTests.release.xcconfig"; path = "Target Support Files/Pods-MyProject-MyProjectTests/Pods-MyProject-MyProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		EC3C11DE2CEE835B0024FFEB /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		EC3C11DF2CEE835B0024FFEB /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		EC3C11E02CEE835B0024FFEB /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		EC3C11E42CEE84900024FFEB /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -95,6 +103,10 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				EC3C11DE2CEE835B0024FFEB /* Nunito-Bold.ttf */,
+				EC3C11DF2CEE835B0024FFEB /* Nunito-Light.ttf */,
+				EC3C11E02CEE835B0024FFEB /* Nunito-Regular.ttf */,
+				EC3C11E42CEE84900024FFEB /* Nunito-Black.ttf */,
 			);
 			name = MyProject;
 			sourceTree = "<group>";
@@ -245,7 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				EC3C11E52CEE84900024FFEB /* Nunito-Black.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				EC3C11E12CEE835B0024FFEB /* Nunito-Regular.ttf in Resources */,
+				EC3C11E22CEE835B0024FFEB /* Nunito-Light.ttf in Resources */,
+				EC3C11E32CEE835B0024FFEB /* Nunito-Bold.ttf in Resources */,
 				5F5C750FD7CDB7A3E13FFC41 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,10 +626,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -682,10 +695,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

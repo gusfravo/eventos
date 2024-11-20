@@ -10,7 +10,7 @@ function HeaderSection():React.JSX.Element {
         <SafeAreaView style={styleHeader.headerContainer}>
             <View style={styleHeader.headerContainer}>
                 <View style={styleHeader.headerSection}>
-                    <Text style={styleHeader.title}>Eventos.</Text>
+                    <Text style={styleHeader.title}>Eventos</Text>
                     <Image
                         style={styleHeader.image}
                         source={require('../../../assets/icons/new.png')}
@@ -25,7 +25,7 @@ function HeaderSection():React.JSX.Element {
 const styleHeader = StyleSheet.create({
     headerContainer:{
         padding:10,
-        height:50,
+        height:60,
         backgroundColor:backgroundStyle.backgroundColor
     },
     headerSection:{
@@ -41,7 +41,8 @@ const styleHeader = StyleSheet.create({
         // backgroundColor: "#ea638c",
         width:'50%',
         alignSelf:'center',
-        color:DEEP_GRAY
+        color:DEEP_GRAY,
+        fontFamily:'Nunito Black'
     },
     image:{
         width:36,
