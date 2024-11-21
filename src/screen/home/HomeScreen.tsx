@@ -6,8 +6,9 @@ import {
     View,
   } from 'react-native';
 
-  import { backgroundStyle } from '../../shared/style/background.style';
+import { backgroundStyle } from '../../shared/style/background.style';
 import SearchInput from './components/SearchInput';
+import ListEvents from './components/ListEvents';
 import { WHITE_SMOKE } from '../../shared/constants';
 
 function HomeScreen(): React.JSX.Element {
@@ -17,9 +18,7 @@ function HomeScreen(): React.JSX.Element {
         style={backgroundStyle}>
             <View style={styleHome.container}>
                 <SearchInput></SearchInput>
-                <Text>
-                    Hola Test Prubando {backgroundStyle.backgroundColor}
-                </Text>
+                <ListEvents></ListEvents>
             </View>
         </ScrollView>
     );
