@@ -29,6 +29,7 @@ const styleSearch = StyleSheet.create({
         borderRadius:10,
         paddingHorizontal:10,
         paddingVertical:5,
-        fontSize:16
+        fontSize:16,
+        fontFamily:'Nunito Regular'
     }
 });
