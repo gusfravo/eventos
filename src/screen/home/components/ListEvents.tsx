@@ -1,13 +1,19 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text } from "react-native";
+import { ScrollView, StyleSheet, Text, FlatList } from "react-native";
 import { WHITE_SMOKE } from "../../../shared/constants";
+import { LIST_EVENTS } from "../constants/listevents.constant";
+import ItemEvent  from './ItemEvent';
 
 function ListEvents(): React.JSX.Element{
     return (
         <ScrollView 
         contentInsetAdjustmentBehavior="automatic"
         style={ListEventStyle.container}>
-            <Text> List Events works! </Text>
+            <FlatList
+                data={LIST_EVENTS}
+                renderItem={({ item })=> <ItemEvent item={item}></ItemEvent>}
+                keyExtractor={item => item.icon}
+            ></FlatList>
         </ScrollView>
     )
 }
