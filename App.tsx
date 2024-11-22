@@ -23,6 +23,8 @@ import { DEEP_GRAY, WHITE_SMOKE } from './src/shared/constants';
 const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
+  // @@iconify-code-gen
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
