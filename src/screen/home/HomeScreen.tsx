@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 function HomeScreen(): React.JSX.Element {
     return (
-        <SafeAreaView style={styleHome.container}>
+        <SafeAreaView style={styleHome.container} edges={{top:'off',bottom:'off', right:'additive',left:'additive'}}>
             <SearchInput></SearchInput>
             <ListEvents></ListEvents>
         </SafeAreaView>
