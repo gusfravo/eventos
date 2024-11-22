@@ -10,17 +10,14 @@ import { backgroundStyle } from '../../shared/style/background.style';
 import SearchInput from './components/SearchInput';
 import ListEvents from './components/ListEvents';
 import { WHITE_SMOKE } from '../../shared/constants';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function HomeScreen(): React.JSX.Element {
     return (
-        <ScrollView 
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-            <View style={styleHome.container}>
-                <SearchInput></SearchInput>
-                <ListEvents></ListEvents>
-            </View>
-        </ScrollView>
+        <SafeAreaView style={styleHome.container}>
+            <SearchInput></SearchInput>
+            <ListEvents></ListEvents>
+        </SafeAreaView>
     );
 }
 
