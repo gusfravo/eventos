@@ -23,7 +23,7 @@ function ItemEvent({item}:ItemEventJSX): React.JSX.Element{
 const itemEventStyle = StyleSheet.create({
     container:{
         height:70,
-        marginVertical:8,
+        marginVertical:16,
     },
     mainContainer:{
         height:56,
