@@ -11,7 +11,13 @@ module.exports = {
           'feather:activity',
           'solar:4k-bold',
           'solar:wi-fi-router-bold',
-          'solar:home-wifi-angle-line-duotone'
+          'solar:home-wifi-angle-line-duotone',
+          'solar:donut-bitten-bold',
+          'solar:pallete-2-bold',
+          'solar:telescope-bold',
+          'solar:armchair-2-bold',
+          'solar:bicycling-bold',
+          'solar:link-square-bold'
           // Add more icons here
         ],
       },

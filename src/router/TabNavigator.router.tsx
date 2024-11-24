@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // import HomeScreen from "../../screen/home.screen";
 import HomeScreen from "../screen/home/HomeScreen"
-import HeaderSection from "../shared/header/HeaderSection";
+import HeaderSection from "../shared/components/header/HeaderSection";
 import { WHITE_SMOKE } from "../shared/constants";
 import { backgroundStyle } from "../shared/style/background.style";
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { DEEP_GRAY,WHITE_SMOKE } from '../constants';
-import { backgroundStyle } from '../style/background.style';
+import { DEEP_GRAY,WHITE_SMOKE } from '../../constants';
+import { backgroundStyle } from '../../style/background.style';
 
 function HeaderSection():React.JSX.Element {
     return(
@@ -13,7 +13,7 @@ function HeaderSection():React.JSX.Element {
                     <Text style={styleHeader.title}>Eventos</Text>
                     <Image
                         style={styleHeader.image}
-                        source={require('../../../assets/icons/new.png')}
+                        source={require('../../../../assets/icons/new.png')}
                         />
                 </View>
             </View>
