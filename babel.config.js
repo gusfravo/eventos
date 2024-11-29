@@ -17,7 +17,10 @@ module.exports = {
           'solar:telescope-bold',
           'solar:armchair-2-bold',
           'solar:bicycling-bold',
-          'solar:link-square-bold'
+          'solar:link-square-bold',
+          'solar:clipboard-list-bold',
+          'solar:add-circle-broken',
+          'solar:settings-bold'
           // Add more icons here
         ],
       },

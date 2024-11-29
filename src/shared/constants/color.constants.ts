@@ -7,3 +7,5 @@ export const OLD_GRAY = '#707070';
 export const DEEP_GRAY = '#484848';
 
 export const HAPPY_BLUE = '#329AC2';
+
+export const TRANSPARENT ='#00FF0000';

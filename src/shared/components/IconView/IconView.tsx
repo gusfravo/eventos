@@ -2,11 +2,23 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Iconify } from 'react-native-iconify';
 import { DEEP_GRAY } from "../../constants";
+import { iconViewOptions } from "./interfaces/iconViewInterface";
 
-function IconView({icon}:{icon:string}):React.JSX.Element{
+function IconView({icon, iconViewOptions}:{icon:string,iconViewOptions:iconViewOptions | undefined}):React.JSX.Element{
+
+    const backgroundColor = iconViewOptions?.background ? iconViewOptions.background : DEEP_GRAY;
+    const iconHeigth = iconViewOptions?.height ? iconViewOptions?.height : 32;
+    const iconWidth= iconViewOptions?.width ? iconViewOptions?.width : 32;
+    const iconColor= iconViewOptions?.color ? iconViewOptions?.color : 'white';
+
     return(
-        <View style={iconViewStyle.container}>
-            <Iconify icon={icon} style={iconViewStyle.icon}/>
+        <View style={[iconViewStyle.container,{backgroundColor:backgroundColor}]}>
+            <Iconify icon={icon} style={[iconViewStyle.icon,{
+                color:iconColor,
+                margin:'auto',
+                width:iconWidth,
+                height:iconHeigth
+            }]}/>
         </View>
     );
 }
