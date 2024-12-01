@@ -2,19 +2,17 @@ import React from 'react';
 
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { DEEP_GRAY,WHITE_SMOKE } from '../../constants';
+import { DEEP_GRAY,TRANSPARENT,WHITE_SMOKE } from '../../constants';
 import { backgroundStyle } from '../../style/background.style';
+import IconView from '../IconView/IconView';
 
-function HeaderSection():React.JSX.Element {
+function HeaderSection({title}:{title:string}):React.JSX.Element {
     return(
         <SafeAreaView style={styleHeader.headerContainer}>
             <View style={styleHeader.headerContainer}>
                 <View style={styleHeader.headerSection}>
-                    <Text style={styleHeader.title}>Eventos</Text>
-                    <Image
-                        style={styleHeader.image}
-                        source={require('../../../../assets/icons/new.png')}
-                        />
+                    <Text style={styleHeader.title}>{title}</Text>
+                    <IconView icon={'solar:add-circle-broken'} iconViewOptions={{background:TRANSPARENT, width:36, height:36,color:DEEP_GRAY}}/>
                 </View>
             </View>
         </SafeAreaView>
@@ -39,15 +37,10 @@ const styleHeader = StyleSheet.create({
         fontSize:32,
         fontWeight:600,
         // backgroundColor: "#ea638c",
-        width:'50%',
+        width:'60%',
         alignSelf:'center',
         color:DEEP_GRAY,
         fontFamily:'Nunito Black'
-    },
-    image:{
-        width:36,
-        height:36,
-        resizeMode: 'cover'
     }
 });
 

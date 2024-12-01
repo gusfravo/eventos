@@ -1,6 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screen/home/HomeScreen"
+import NewEventScreen from "../screen/newEvent/NewEventScreen";
 import HeaderSection from "../shared/components/header/HeaderSection";
 import { HAPPY_BLUE } from "../shared/constants";
 import eventIcon from "./components/EventIcon";
@@ -13,8 +14,8 @@ const TabNavigator = ()=>{
     return (
         <Tab.Navigator initialRouteName="Home"
         screenOptions={{
-          header:({ navigation, route, options }) => {
-            return <HeaderSection/>;
+          header:({ navigation, route, options }) => {           
+            return <HeaderSection title={options.title!}/>;
           },
           tabBarStyle:{
             backgroundColor:'#F2F2F2',
@@ -38,7 +39,7 @@ const TabNavigator = ()=>{
             title:'Eventos',
             tabBarIcon:eventIcon
           }} />
-          <Tab.Screen name="New" component={HomeScreen} options={{
+          <Tab.Screen name="New" component={NewEventScreen} options={{
             title:'Nuevo',
             tabBarIcon:newIcon
           }} />
