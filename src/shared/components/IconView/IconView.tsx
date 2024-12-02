@@ -12,18 +12,18 @@ function IconView({icon, iconViewOptions}:{icon:string,iconViewOptions:iconViewO
     const iconColor= iconViewOptions?.color ? iconViewOptions?.color : 'white';
 
     return(
-        <View style={[iconViewStyle.container,{backgroundColor:backgroundColor}]}>
-            <Iconify icon={icon} style={[iconViewStyle.icon,{
+        <View style={[iconViewStyle.container,{backgroundColor:backgroundColor,height:iconHeigth,width:iconWidth}]}>
+            {/* //TODO - Mejorar el padding para desidir el tamños del icono */}
+            <Iconify icon={icon}  size={iconWidth/1.2} style={[iconViewStyle.icon,{
                 color:iconColor,
                 margin:'auto',
                 width:iconWidth,
-                height:iconHeigth
+                height:iconHeigth,
             }]}/>
         </View>
     );
 }
 
-//TODO: Como cambiar al tamaño del icon de forma dinamica
 const iconViewStyle = StyleSheet.create({
     container:{
         borderRadius:8,
