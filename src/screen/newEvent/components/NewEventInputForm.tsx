@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet, Text } from "react-native";
+import { STYLE_FORM_INPUT } from '../styles/inputForm.style';
 
 function NewEventInputForm():React.JSX.Element{
     const [name, onChangeName] = useState('');
-    // const [date, onChangeDate] = useState('');
 
     return(
-        <View style={styleFormInput.container}>
+        <View style={STYLE_FORM_INPUT.container}>
+            <Text style={[STYLE_FORM_INPUT.inputBase,STYLE_FORM_INPUT.label]}>Nombre</Text>
             <TextInput
-                style={styleFormInput.input}
+                style={[STYLE_FORM_INPUT.inputBase,STYLE_FORM_INPUT.input]}
                 value={name}
                 onChangeText={onChangeName}
                 placeholder={'Nombre'}
@@ -17,25 +18,5 @@ function NewEventInputForm():React.JSX.Element{
         </View>
     );
 }
-
-const styleFormInput = StyleSheet.create({
-    container:{
-        flex:1,
-        flexDirection:'column',
-        width:'100%',
-        alignItems:'center'
-    },
-    input:{
-        height: 44,
-        margin: 12,
-        borderWidth: 1,
-        borderRadius:10,
-        padding: 10,
-        fontSize: 16,
-        borderColor: '#B6B6B6',
-        backgroundColor: 'white',
-        width:'100%'
-    }
-})
 
 export default NewEventInputForm;
