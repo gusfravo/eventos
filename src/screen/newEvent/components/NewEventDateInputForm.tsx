@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import { View, TextInput, Text } from "react-native";
 import { STYLE_FORM_INPUT } from '../styles/inputForm.style';
 
-function NewEventInputForm():React.JSX.Element{
-    const [name, onChangeName] = useState('');
+function NewEventDateInputForm(): React.JSX.Element{
+    const [date, onChangeDate] = useState('');
 
     return(
         <View style={STYLE_FORM_INPUT.container}>
-            <Text style={[STYLE_FORM_INPUT.inputBase,STYLE_FORM_INPUT.label]}>Nombre</Text>
+            <Text style={[STYLE_FORM_INPUT.inputBase,STYLE_FORM_INPUT.label]}>Fecha</Text>
             <TextInput
                 style={[STYLE_FORM_INPUT.inputBase,STYLE_FORM_INPUT.input]}
-                value={name}
-                onChangeText={onChangeName}
-                placeholder={'Nombre'}
+                value={date}
+                onChangeText={onChangeDate}
+                placeholder={'Fecha'}
                 keyboardType={'default'}
             />
         </View>
     );
 }
 
-export default NewEventInputForm;
+export default NewEventDateInputForm;

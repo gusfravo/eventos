@@ -2,9 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const STYLE_FORM_INPUT = StyleSheet.create({
     container:{
-        flex:1,
         flexDirection:'row',
-        width:'100%',
         alignItems:'center',
         padding:10
     },

@@ -3,6 +3,7 @@ import { WHITE_SMOKE } from "../../shared/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import  NewEventIcon from './components/NewEventIcon';
 import NewEventInputForm from "./components/NewEventInputForm";
+import NewEventDateInputForm from "./components/NewEventDateInputForm";
 
 function NewEventScreen(){
     return (
@@ -10,6 +11,7 @@ function NewEventScreen(){
             <Text>New Event Works!!</Text>
             <NewEventIcon></NewEventIcon>
             <NewEventInputForm></NewEventInputForm>
+            <NewEventDateInputForm></NewEventDateInputForm>
         </SafeAreaView>
     );
 }
@@ -24,6 +26,7 @@ const styleHome = StyleSheet.create({
         paddingVertical:16,
         backgroundColor:WHITE_SMOKE,
         flexDirection:'column',
-        alignItems:'center'
+        alignItems:'center',
+        rowGap:16
     }
 });
