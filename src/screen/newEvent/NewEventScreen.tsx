@@ -5,6 +5,7 @@ import  NewEventIcon from './components/NewEventIcon';
 import NewEventInputForm from "./components/NewEventInputForm";
 import NewEventDateInputForm from "./components/NewEventDateInputForm";
 import NewEventSelectColorForm from "./components/NewEventSelectColorForm";
+import NewEventSelectIconForm from "./components/NewEventSelectIconForm";
 
 function NewEventScreen(){
     return (
@@ -13,6 +14,7 @@ function NewEventScreen(){
             <NewEventInputForm></NewEventInputForm>
             <NewEventDateInputForm></NewEventDateInputForm>
             <NewEventSelectColorForm></NewEventSelectColorForm>
+            <NewEventSelectIconForm></NewEventSelectIconForm>
         </SafeAreaView>
     );
 }

@@ -20,7 +20,16 @@ module.exports = {
           'solar:link-square-bold',
           'solar:clipboard-list-bold',
           'solar:add-circle-broken',
-          'solar:settings-bold'
+          'solar:settings-bold',
+          'solar:video-frame-play-vertical-bold',
+          'solar:server-square-cloud-bold',
+          'solar:home-wifi-angle-bold',
+          'solar:folder-with-files-bold',
+          'solar:gamepad-bold',
+          'solar:gameboy-bold',
+          'solar:shop-2-bold',
+          'solar:rocket-2-bold',
+          'solar:alarm-add-bold'
           // Add more icons here
         ],
       },
