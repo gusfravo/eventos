@@ -9,7 +9,6 @@ import NewEventSelectColorForm from "./components/NewEventSelectColorForm";
 function NewEventScreen(){
     return (
         <SafeAreaView style={styleHome.container} edges={{top:'off',bottom:'off', right:'additive',left:'additive'}}>
-            <Text>New Event Works!!</Text>
             <NewEventIcon></NewEventIcon>
             <NewEventInputForm></NewEventInputForm>
             <NewEventDateInputForm></NewEventDateInputForm>
