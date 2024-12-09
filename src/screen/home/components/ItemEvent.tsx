@@ -7,7 +7,7 @@ function ItemEvent({item}:ItemEventJSX): React.JSX.Element{
     return (
         <View style={itemEventStyle.container}>
             <View style={itemEventStyle.mainContainer}>
-                <IconView icon={item.icon}/>
+                <IconView icon={item.icon} iconViewOptions={{}}/>
                 <View style={[itemEventStyle.box,itemEventStyle.detailBox]}>
                     <Text style={itemEventStyle.detailsBoxMainText}>{item.title}</Text>
                     <Text style={itemEventStyle.detailsSoftText}>{item.lastDate}</Text>

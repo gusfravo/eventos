@@ -4,7 +4,7 @@ import { Iconify } from 'react-native-iconify';
 import { DEEP_GRAY } from "../../constants";
 import { iconViewOptions } from "./interfaces/iconViewInterface";
 
-function IconView({icon, iconViewOptions}:{icon:string,iconViewOptions:iconViewOptions | undefined}):React.JSX.Element{
+function IconView({icon, iconViewOptions}:{icon:string, iconViewOptions:iconViewOptions | undefined}):React.JSX.Element{
 
     const backgroundColor = iconViewOptions?.background ? iconViewOptions.background : DEEP_GRAY;
     const iconHeigth = iconViewOptions?.height ? iconViewOptions?.height : 32;

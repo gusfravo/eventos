@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import  NewEventIcon from './components/NewEventIcon';
 import NewEventInputForm from "./components/NewEventInputForm";
 import NewEventDateInputForm from "./components/NewEventDateInputForm";
+import NewEventSelectColorForm from "./components/NewEventSelectColorForm";
 
 function NewEventScreen(){
     return (
@@ -12,6 +13,7 @@ function NewEventScreen(){
             <NewEventIcon></NewEventIcon>
             <NewEventInputForm></NewEventInputForm>
             <NewEventDateInputForm></NewEventDateInputForm>
+            <NewEventSelectColorForm></NewEventSelectColorForm>
         </SafeAreaView>
     );
 }
