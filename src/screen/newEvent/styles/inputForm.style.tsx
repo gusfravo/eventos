@@ -4,7 +4,7 @@ export const STYLE_FORM_INPUT = StyleSheet.create({
     container:{
         flexDirection:'row',
         alignItems:'center',
-        padding:10
+        paddingHorizontal:10
     },
     inputBase:{
         height: 44,
