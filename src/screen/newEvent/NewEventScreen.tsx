@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from "react-native";
+import {StyleSheet, ScrollView } from "react-native";
 import { WHITE_SMOKE } from "../../shared/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import  NewEventIcon from './components/NewEventIcon';
@@ -6,6 +6,7 @@ import NewEventInputForm from "./components/NewEventInputForm";
 import NewEventDateInputForm from "./components/NewEventDateInputForm";
 import NewEventSelectColorForm from "./components/NewEventSelectColorForm";
 import NewEventSelectIconForm from "./components/NewEventSelectIconForm";
+import NewEventButton from "./components/NewEventButton";
 
 function NewEventScreen(){
     return (
@@ -15,6 +16,7 @@ function NewEventScreen(){
             <NewEventDateInputForm></NewEventDateInputForm>
             <NewEventSelectColorForm></NewEventSelectColorForm>
             <NewEventSelectIconForm></NewEventSelectIconForm>
+            <NewEventButton></NewEventButton>
         </SafeAreaView>
     );
 }
