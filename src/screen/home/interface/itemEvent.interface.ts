@@ -1,3 +1,5 @@
+import { GestureResponderEvent } from "react-native"
+
 export interface ItemEventInterface {
     icon:string,
     color:string,
@@ -8,5 +10,6 @@ export interface ItemEventInterface {
 }
 
 export interface ItemEventJSX{
-    item:ItemEventInterface
+    item:ItemEventInterface,
+    onPress:null | ((event: GestureResponderEvent) => void) | undefined
 }

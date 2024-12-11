@@ -7,10 +7,11 @@ import NewEventDateInputForm from "./components/NewEventDateInputForm";
 import NewEventSelectColorForm from "./components/NewEventSelectColorForm";
 import NewEventSelectIconForm from "./components/NewEventSelectIconForm";
 import NewEventButton from "./components/NewEventButton";
+import { EDGES } from "../../shared/constants";
 
 function NewEventScreen(){
     return (
-        <SafeAreaView style={styleHome.container} edges={{top:'off',bottom:'off', right:'additive',left:'additive'}}>
+        <SafeAreaView style={styleHome.container} edges={EDGES}>
             <NewEventIcon></NewEventIcon>
             <NewEventInputForm></NewEventInputForm>
             <NewEventDateInputForm></NewEventDateInputForm>

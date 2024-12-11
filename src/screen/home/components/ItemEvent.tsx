@@ -1,19 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { ItemEventJSX } from "../interface/itemEvent.interface";
 import IconView from "../../../shared/components/IconView/IconView";
 
-function ItemEvent({item}:ItemEventJSX): React.JSX.Element{
+function ItemEvent({item, onPress}:ItemEventJSX): React.JSX.Element{
     return (
         <View style={itemEventStyle.container}>
-            <View style={itemEventStyle.mainContainer}>
+            <Pressable style={itemEventStyle.mainContainer}
+            onPress={onPress}>
                 <IconView icon={item.icon} iconViewOptions={{}}/>
                 <View style={[itemEventStyle.box,itemEventStyle.detailBox]}>
                     <Text style={itemEventStyle.detailsBoxMainText}>{item.title}</Text>
                     <Text style={itemEventStyle.detailsSoftText}>{item.lastDate}</Text>
                 </View>
                 <Text style={[itemEventStyle.box,itemEventStyle.titleDays]}>{item.lastDays} días</Text>
-            </View>
+            </Pressable>
 
             <Text style={[itemEventStyle.detailsSoftText]}>Ocurrencias: {item.repeats}</Text>
         </View>

@@ -4,13 +4,15 @@ import { WHITE_SMOKE } from "../../../shared/constants";
 import { LIST_EVENTS } from "../constants/listevents.constant";
 import ItemEvent  from './ItemEvent';
 
-function ListEvents(): React.JSX.Element{
+function ListEvents(){
     return (
         <View 
         style={ListEventStyle.container}>
             <FlatList
                 data={LIST_EVENTS}
-                renderItem={({ item })=> <ItemEvent item={item}></ItemEvent>}
+                renderItem={({ item })=> <ItemEvent item={item} onPress={()=>{
+                    console.log("Send To edit")
+                }}></ItemEvent>}
                 keyExtractor={item => item.icon}
             ></FlatList>
         </View>
