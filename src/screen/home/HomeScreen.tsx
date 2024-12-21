@@ -9,12 +9,14 @@ import ListEvents from './components/ListEvents';
 import { WHITE_SMOKE } from '../../shared/constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { EDGES } from '../../shared/constants';
+import { TabNavigatorScreenProps } from '../../router/interfaces';
 
-function HomeScreen(): React.JSX.Element {
+function HomeScreen(tabNavigator:TabNavigatorScreenProps): React.JSX.Element {
+    console.log(tabNavigator)
     return (
         <SafeAreaView style={styleHome.container} edges={EDGES}>
             <SearchInput></SearchInput>
-            <ListEvents></ListEvents>
+            <ListEvents navigation={tabNavigator.navigation}></ListEvents>
         </SafeAreaView>
     );
 }

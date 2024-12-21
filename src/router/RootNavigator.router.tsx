@@ -2,13 +2,18 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from './TabNavigator.router';
 import EditEventScreen from '../screen/editEvent/EditEventScreen';
-const Stack = createNativeStackNavigator();
+import { RootStackParamList } from './interfaces';
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigate = ():React.JSX.Element=>{
     return(
-        <Stack.Navigator initialRouteName='main' screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="main" component={TabNavigator} />
-            <Stack.Screen name="edit" component={EditEventScreen} />
+        <Stack.Navigator initialRouteName='main' screenOptions={{ }}>
+            <Stack.Screen name="main" component={TabNavigator} options={{
+                    headerShown: false, // Mostramos un encabezado para esta pantalla
+                }} />
+            <Stack.Screen name="edit" component={EditEventScreen} options={{
+                    headerShown: true, // Mostramos un encabezado para esta pantalla
+                }} />
         </Stack.Navigator>
     )
 }

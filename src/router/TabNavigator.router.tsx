@@ -7,8 +7,9 @@ import { HAPPY_BLUE } from "../shared/constants";
 import eventIcon from "./components/EventIcon";
 import settingsIcon from "./components/SettingsIcon";
 import newIcon from "./components/NewIcon";
+import { RootTabParamList } from "./interfaces";
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 const TabNavigator = ()=>{
     return (
@@ -45,7 +46,7 @@ const TabNavigator = ()=>{
           }} />
           <Tab.Screen name="Settings" component={HomeScreen} options={{
             title:'Configuración',
-            tabBarIcon:settingsIcon
+            tabBarIcon:settingsIcon,
           }} />
         </Tab.Navigator>
       );
