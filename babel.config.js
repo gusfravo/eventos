@@ -29,7 +29,10 @@ module.exports = {
           'solar:gameboy-bold',
           'solar:shop-2-bold',
           'solar:rocket-2-bold',
-          'solar:alarm-add-bold'
+          'solar:alarm-add-bold',
+          'solar:pen-2-bold',
+          'solar:pen-bold',
+          'solar:pen-linear'
           // Add more icons here
         ],
       },
