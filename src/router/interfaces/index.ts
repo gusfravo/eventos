@@ -1,4 +1,4 @@
 export * from './rootNavigateTab.interface';
 export * from './tabNavigatorScreenProp.interface';
-export * from './editScreenProp.interface';
+export * from './detailsScreenProp.interface';
 export * from './rootNavigateStack.interface'

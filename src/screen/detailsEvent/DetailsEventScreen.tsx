@@ -1,21 +1,21 @@
+
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { EDGES, WHITE_SMOKE } from "../../shared/constants";
 import { StyleSheet, Text } from "react-native";
 
-function EditEventScreen():React.JSX.Element{
-
-    return (
-        <SafeAreaView style={styleEdit.container} edges={EDGES}>
-            <Text>EditEventScreen Works!!</Text>
-        </SafeAreaView>
-    )
-
+function DetailsEventScreen():React.JSX.Element{
+        return (
+            <SafeAreaView style={styleDetails.container} edges={EDGES}>
+                <Text>Event Details Works!!</Text>
+            </SafeAreaView>
+        )
 }
 
-export default EditEventScreen;
+export default DetailsEventScreen;
 
-const styleEdit = StyleSheet.create({
+
+const styleDetails = StyleSheet.create({
     container:{
         flex:1,
         paddingHorizontal:16,
