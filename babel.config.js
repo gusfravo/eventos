@@ -32,7 +32,8 @@ module.exports = {
           'solar:alarm-add-bold',
           'solar:pen-2-bold',
           'solar:pen-bold',
-          'solar:pen-linear'
+          'solar:pen-linear',
+          'solar:trash-bin-trash-bold'
           // Add more icons here
         ],
       },
