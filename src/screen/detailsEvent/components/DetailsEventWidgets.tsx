@@ -37,7 +37,7 @@ const DetailsEventStyle = StyleSheet.create({
         gap:16,
         backgroundColor:'#FFC36F',
         width:'100%',
-        paddingVertical:16
+        padding:16
     },
     box:{
         padding:12,
@@ -45,7 +45,7 @@ const DetailsEventStyle = StyleSheet.create({
         backgroundColor:'#000000',
         opacity:.35,
         borderRadius:10,
-        width:115,
+        width:100,
         height:80,
         flexDirection:'row'
     },
