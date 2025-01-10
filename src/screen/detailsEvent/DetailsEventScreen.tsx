@@ -6,6 +6,7 @@ import { StyleSheet, Text } from "react-native";
 import DetailsEventStatistics from "./components/DetailsEventStatistics";
 import DetailsEventWidgets from "./components/DetailsEventWidgets";
 import DetailsEventTopButtons from "./components/DetailsEventTopButtons";
+import DetailsEventList from "./components/DetailsEventList";
 
 function DetailsEventScreen():React.JSX.Element{
         return (
@@ -13,6 +14,7 @@ function DetailsEventScreen():React.JSX.Element{
                 <DetailsEventStatistics></DetailsEventStatistics>
                 <DetailsEventWidgets></DetailsEventWidgets>
                 <DetailsEventTopButtons></DetailsEventTopButtons>
+                <DetailsEventList></DetailsEventList>
             </SafeAreaView>
         )
 }
