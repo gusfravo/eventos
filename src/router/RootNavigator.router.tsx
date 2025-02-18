@@ -20,7 +20,7 @@ const RootNavigate = (): React.JSX.Element => {
       <Stack.Screen name="details" component={DetailsEventScreen} options={{
         headerShown: true, // Mostramos un encabezado para esta pantalla
       }} />
-      <Stack.Screen name="error" component={AlertEventScreen} options={{ headerShown: true }} ></Stack.Screen>
+      <Stack.Screen name="error" component={AlertEventScreen} options={{ headerShown: false }} ></Stack.Screen>
     </Stack.Navigator>
   )
 }
