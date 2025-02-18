@@ -1,4 +1,5 @@
 export type RootStackParamList = {
-    main: undefined; // No recibe parámetros
-    details:undefined;
-  };
+  main: undefined; // No recibe parámetros
+  details: undefined;
+  error: undefined
+};
