@@ -5,11 +5,13 @@ import { StyleSheet } from "react-native";
 import AlertEventContain from "./components/AlertEventContain";
 import AlertEventAction from "./components/AlertEventAction";
 
-function AlertEventScreen(): React.JSX.Element {
+function AlertEventScreen({ navigation }: any): React.JSX.Element {
   return (
     <SafeAreaView style={styleAlertError.container} edges={{ ...EDGES, top: 'additive', bottom: 'additive' }}>
       <AlertEventContain></AlertEventContain>
-      <AlertEventAction></AlertEventAction>
+      <AlertEventAction onPress={() => {
+        navigation.navigate('error');
+      }}></AlertEventAction>
     </SafeAreaView>
   )
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { HAPPY_BLUE } from '../../../shared/constants';
+import { GestureResponderEvent } from 'react-native';
 
-function AlertEventAction(): React.JSX.Element {
+function AlertEventAction({ onPress }: { onPress: null | ((event: GestureResponderEvent) => void) | undefined }): React.JSX.Element {
   return (
-    <Pressable style={styleAlertEvent.button}>
+    <Pressable style={styleAlertEvent.button}
+      onPress={onPress}>
       <Text style={styleAlertEvent.text}>
         Volver al inicio
       </Text>
