@@ -13,6 +13,7 @@ export const eventsSlice = createSlice({
   reducers: {
     getEvents: (state, action: PayloadAction<ItemEventInterface[]>) => {
       state = action.payload
+      return action.payload;
     },
     addEvent: (state, action: PayloadAction<ItemEventInterface>) => {
       state.push(action.payload);
