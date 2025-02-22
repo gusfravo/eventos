@@ -12,11 +12,34 @@ export const eventsSlice = createSlice({
 
   reducers: {
     getEvents: (state, action: PayloadAction<ItemEventInterface[]>) => {
-      return action.payload
+      state = action.payload
+    },
+    addEvent: (state, action: PayloadAction<ItemEventInterface>) => {
+      state.push(action.payload);
+    },
+    updataEvent: (state, action: PayloadAction<ItemEventInterface>) => {
+      const { id, icon, color, title, lastDate, lastDays, repeats } = action.payload;
+      const foundEvent = exitsItem(state, id);
+      if (foundEvent) {
+        foundEvent.color = color;
+        foundEvent.lastDays = lastDays;
+        foundEvent.title = title;
+        foundEvent.lastDate = lastDate;
+        foundEvent.repeats = repeats;
+        foundEvent.icon = icon;
+      }
+    },
+    deleteEvent(state, action: PayloadAction<string>) {
+      state = state.filter(item => item.id != action.payload)
     }
   }
 });
 
-export const { getEvents } = eventsSlice.actions;
+function exitsItem(events: ItemEventInterface[], eventIdSearch: string): ItemEventInterface | undefined {
+  return events.find(event => event.id === eventIdSearch)
+
+}
+
+export const { getEvents, addEvent, updataEvent, deleteEvent } = eventsSlice.actions;
 
 export default eventsSlice.reducer;

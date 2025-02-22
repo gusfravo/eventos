@@ -17,9 +17,12 @@ import { LIST_EVENTS } from './constants/listevents.constant';
 
 
 function HomeScreen(tabNavigator: TabNavigatorScreenProps): React.JSX.Element {
+  //Declaramos el selector del events del store
   const events: ItemEventInterface[] = useAppSelector(selectEvents);
+  //Declaramos el dispatch para enviar acciones al store global
   const dispatch = useAppDispatch();
 
+  //useEffect, es un hook para ejecutar algo en tu componente, este se ejecuta despues de que react a renderizado un componente
   useEffect(() => {
     dispatch(getEvents(LIST_EVENTS))
   }, [dispatch])
