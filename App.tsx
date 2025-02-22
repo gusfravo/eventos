@@ -17,8 +17,10 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import RootNavigate  from './src/router/RootNavigator.router';
+import RootNavigate from './src/router/RootNavigator.router';
 import { DEEP_GRAY, WHITE_SMOKE } from './src/shared/constants';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store.ts';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,18 +31,20 @@ function App(): React.JSX.Element {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? DEEP_GRAY : WHITE_SMOKE,
-    flex:1
+    flex: 1
   };
 
   return (
-    <SafeAreaProvider>
-      <StatusBar
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <StatusBar
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
         <NavigationContainer>
           <RootNavigate></RootNavigate>
         </NavigationContainer>
-    </SafeAreaProvider>
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 
