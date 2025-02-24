@@ -22,7 +22,9 @@ function NewEventScreen() {
       <NewEventDateInputForm inputs={inputs} handleChange={handleFormChange} ></NewEventDateInputForm>
       <NewEventSelectColorForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectColorForm>
       <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
-      <NewEventButton></NewEventButton>
+      <NewEventButton onPress={() => {
+        console.log("Inputs:::", inputs);
+      }}></NewEventButton>
     </SafeAreaView>
   );
 }
