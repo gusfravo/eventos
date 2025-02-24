@@ -18,7 +18,6 @@ export const useForm = () => {
   })
 
   const handleFormChange = (name: keyof InputsForm, value: string) => {
-    console.log("handleFormChange", value)
     setInputs((prevState) => ({
       ...prevState,
       [name]: value
