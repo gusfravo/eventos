@@ -12,8 +12,9 @@ import useForm from "./hooks/newEventHook";
 import { useAppDispatch } from "../../redux/hook";
 import { addEvent } from "../../redux/events/eventsSlice";
 import { ItemEventInterface } from "../home/interface/itemEvent.interface";
+import { TabNavigatorScreenPropsNewEvent } from "../../router/interfaces";
 
-function NewEventScreen() {
+function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
 
   //Declaramos el dispatch para enviar los datos al store global
   const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ function NewEventScreen() {
       <NewEventSelectColorForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectColorForm>
       <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
       <NewEventButton onPress={() => {
-        console.log("Inputs:::", inputs);
+
         const event: ItemEventInterface = {
           id: new Date().getTime().toString(),
           color: inputs.color,
@@ -39,7 +40,11 @@ function NewEventScreen() {
           repeats: 0,
           lastDays: 0
         }
+
         dispatch(addEvent(event));
+
+        navigator.navigation.navigate('Home');
+
       }}></NewEventButton>
     </SafeAreaView>
   );
