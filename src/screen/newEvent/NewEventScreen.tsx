@@ -9,8 +9,14 @@ import NewEventSelectIconForm from "./components/NewEventSelectIconForm";
 import NewEventButton from "./components/NewEventButton";
 import { EDGES } from "../../shared/constants";
 import useForm from "./hooks/newEventHook";
+import { useAppDispatch } from "../../redux/hook";
+import { addEvent } from "../../redux/events/eventsSlice";
+import { ItemEventInterface } from "../home/interface/itemEvent.interface";
 
 function NewEventScreen() {
+
+  //Declaramos el dispatch para enviar los datos al store global
+  const dispatch = useAppDispatch();
 
   //Obtenemos las referencia del hook para gestionar los datos
   const { inputs, handleFormChange } = useForm();
@@ -24,6 +30,16 @@ function NewEventScreen() {
       <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
       <NewEventButton onPress={() => {
         console.log("Inputs:::", inputs);
+        const event: ItemEventInterface = {
+          id: new Date().getTime().toString(),
+          color: inputs.color,
+          title: inputs.name,
+          icon: inputs.icon,
+          lastDate: inputs.date,
+          repeats: 0,
+          lastDays: 0
+        }
+        dispatch(addEvent(event));
       }}></NewEventButton>
     </SafeAreaView>
   );
