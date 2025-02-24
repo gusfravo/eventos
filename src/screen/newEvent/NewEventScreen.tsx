@@ -38,7 +38,7 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
           icon: inputs.icon,
           lastDate: inputs.date,
           repeats: 0,
-          lastDays: 0
+          lastDays: 1
         }
 
         dispatch(addEvent(event));
