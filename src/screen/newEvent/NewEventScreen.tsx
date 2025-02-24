@@ -8,15 +8,20 @@ import NewEventSelectColorForm from "./components/NewEventSelectColorForm";
 import NewEventSelectIconForm from "./components/NewEventSelectIconForm";
 import NewEventButton from "./components/NewEventButton";
 import { EDGES } from "../../shared/constants";
+import useForm from "./hooks/newEventHook";
 
 function NewEventScreen() {
+
+  //Obtenemos las referencia del hook para gestionar los datos
+  const { inputs, handleFormChange } = useForm();
+
   return (
     <SafeAreaView style={styleHome.container} edges={EDGES}>
-      <NewEventIcon></NewEventIcon>
-      <NewEventInputForm></NewEventInputForm>
-      <NewEventDateInputForm></NewEventDateInputForm>
-      <NewEventSelectColorForm></NewEventSelectColorForm>
-      <NewEventSelectIconForm></NewEventSelectIconForm>
+      <NewEventIcon inputs={inputs}></NewEventIcon>
+      <NewEventInputForm inputs={inputs} handleChange={handleFormChange}></NewEventInputForm>
+      <NewEventDateInputForm inputs={inputs} handleChange={handleFormChange} ></NewEventDateInputForm>
+      <NewEventSelectColorForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectColorForm>
+      <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
       <NewEventButton></NewEventButton>
     </SafeAreaView>
   );

@@ -1,51 +1,66 @@
 import React from "react";
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import { COLOR_INPUT } from "../constants/NewEventSelectColorData.constants";
+import { FormProps } from "../interfaces/formProps";
 
-function NewEventSelectColorForm():React.JSX.Element{
-    return <View style={selectColorFormStyle.card}>
-        <FlatList 
-        data={COLOR_INPUT}
-        numColumns={6}
-        renderItem={ColorItem}
-        />
-    </View>
+interface ColorItemProps {
+  item: {
+    value: string
+  },
+  onPress: () => void
 }
 
-const ColorItem = ({item}:{item:{value:string}}):React.JSX.Element=>{
-    return (
-        <Pressable style={[colorItemStyle.container,{backgroundColor:item.value}]}>
-        </Pressable>
-    )
+function NewEventSelectColorForm({ inputs, handleChange }: FormProps): React.JSX.Element {
+  return <View style={selectColorFormStyle.card}>
+    <FlatList
+      data={COLOR_INPUT}
+      numColumns={6}
+      renderItem={({ item }) => (<ColorItem item={item} onPress={() => {
+        // Se ejecuta función para enviar el valor al estado de formulario.
+        inputs.color = item.value;
+        handleChange('color', inputs.color);
+      }}></ColorItem>)
+
+      }
+    />
+  </View>
+}
+
+const ColorItem = ({ item, onPress }: ColorItemProps): React.JSX.Element => {
+  return (
+    <Pressable
+      style={[colorItemStyle.container, { backgroundColor: item.value }]}
+      onPress={onPress} />
+  )
 
 }
 
 export default NewEventSelectColorForm;
 
 const selectColorFormStyle = StyleSheet.create({
-    card:{
-        backgroundColor:'white',
-        borderRadius:10,
-        height:128,
-        paddingTop:8,
-        borderColor:'#F6F6F6',
-        borderWidth:1
-    }
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    height: 128,
+    paddingTop: 8,
+    borderColor: '#F6F6F6',
+    borderWidth: 1
+  }
 });
 
 const colorItemStyle = StyleSheet.create({
-    container:{
-        width:40,
-        height:40,
-        padding:2,
-        borderRadius:'50%',
-        margin:8
-    },
-    selected:{
-        borderWidth:2,
-        borderColor:'#B6B6B6',
-        boxShadow: ' 0px 0px 3px',
-        shadowColor:'#B6B6B6',
-        shadowOpacity:25
-    }
+  container: {
+    width: 40,
+    height: 40,
+    padding: 2,
+    borderRadius: '50%',
+    margin: 8
+  },
+  selected: {
+    borderWidth: 2,
+    borderColor: '#B6B6B6',
+    boxShadow: ' 0px 0px 3px',
+    shadowColor: '#B6B6B6',
+    shadowOpacity: 25
+  }
 });
