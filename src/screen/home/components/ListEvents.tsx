@@ -12,7 +12,7 @@ function ListEvents({ navigation, data }: { navigation: any, data: ItemEventInte
         data={data}
         renderItem={({ item }) => <ItemEvent item={item} onPress={() => {
           //console.log("Send To edit", navigation)
-          navigation.navigate('error')
+          navigation.navigate(`details`, { event: { id: item.id } })
         }}></ItemEvent>}
         keyExtractor={item => item.icon}
       ></FlatList>
