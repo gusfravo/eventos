@@ -8,11 +8,18 @@ import DetailsEventWidgets from "./components/DetailsEventWidgets";
 import DetailsEventTopButtons from "./components/DetailsEventTopButtons";
 import DetailsEventList from "./components/DetailsEventList";
 import { RootStackParamList } from "../../router/interfaces";
-import { NavigatorScreenParams, Route } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ItemEventInterface } from "../home/interface/itemEvent.interface";
+import { useAppSelector } from "../../redux/hook";
+import { selectEventsById } from "../../redux/events/eventsSelector";
 
 function DetailsEventScreen({ route }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
   console.log('[APP]-', route.params.event.id);
+  const id: string = route.params.event.id;
+  const event: ItemEventInterface | undefined = useAppSelector(state => selectEventsById(state, id));
+
+  console.log("event:::", event);
+
   return (
     <SafeAreaView style={styleDetails.container} edges={EDGES}>
       <DetailsEventStatistics></DetailsEventStatistics>
