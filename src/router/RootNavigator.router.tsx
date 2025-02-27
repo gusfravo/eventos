@@ -1,17 +1,18 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackHeaderProps } from '@react-navigation/native-stack';
 import TabNavigator from './TabNavigator.router';
 import DetailsEventScreen from '../screen/detailsEvent/DetailsEventScreen';
 import { RootStackParamList } from './interfaces';
 import HeaderStack from '../shared/components/headerStack/HeaderStack';
 import AlertEventScreen from '../screen/alertEvent/AlertEventScreen';
+import { RouteProp } from '@react-navigation/native';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigate = (): React.JSX.Element => {
   return (
     <Stack.Navigator initialRouteName='main' screenOptions={{
-      header: ({ navigation, route, options }) => {
-        return <HeaderStack />;
+      header: ({ navigation, route, options }: NativeStackHeaderProps) => {
+        return <HeaderStack route={route as RouteProp<RootStackParamList, 'details'>} />;
       }
     }}>
       <Stack.Screen name="main" component={TabNavigator} options={{

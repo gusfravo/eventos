@@ -14,15 +14,16 @@ import { useAppSelector } from "../../redux/hook";
 import { selectEventsById } from "../../redux/events/eventsSelector";
 
 function DetailsEventScreen({ route }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
-  console.log('[APP]-', route.params.event.id);
   const id: string = route.params.event.id;
   const event: ItemEventInterface | undefined = useAppSelector(state => selectEventsById(state, id));
 
-  console.log("event:::", event);
+
+  if (!event)
+    return (<Text>with out events</Text>)
 
   return (
     <SafeAreaView style={styleDetails.container} edges={EDGES}>
-      <DetailsEventStatistics></DetailsEventStatistics>
+      <DetailsEventStatistics itemEvent={event}></DetailsEventStatistics>
       <DetailsEventWidgets></DetailsEventWidgets>
       <DetailsEventTopButtons></DetailsEventTopButtons>
       <DetailsEventList></DetailsEventList>
