@@ -24,7 +24,7 @@ function DetailsEventScreen({ route }: NativeStackScreenProps<RootStackParamList
   return (
     <SafeAreaView style={styleDetails.container} edges={EDGES}>
       <DetailsEventStatistics itemEvent={event}></DetailsEventStatistics>
-      <DetailsEventWidgets></DetailsEventWidgets>
+      <DetailsEventWidgets itemEvent={event}></DetailsEventWidgets>
       <DetailsEventTopButtons></DetailsEventTopButtons>
       <DetailsEventList></DetailsEventList>
     </SafeAreaView>
