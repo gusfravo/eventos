@@ -7,7 +7,8 @@ export interface ItemEventInterface {
   title: string,
   lastDate: String,
   repeats: number,
-  lastDays: number
+  lastDays: number,
+  children?: ItemEventInterface[]
 }
 
 export interface ItemEventJSX {
