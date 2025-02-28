@@ -10,12 +10,19 @@ import DetailsEventList from "./components/DetailsEventList";
 import { RootStackParamList } from "../../router/interfaces";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ItemEventInterface } from "../home/interface/itemEvent.interface";
-import { useAppSelector } from "../../redux/hook";
+import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { selectEventsById } from "../../redux/events/eventsSelector";
+import { deleteEvent } from "../../redux/events/eventsSlice";
 
-function DetailsEventScreen({ route }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
+function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
   const id: string = route.params.event.id;
+  const dispatch = useAppDispatch();
   const event: ItemEventInterface | undefined = useAppSelector(state => selectEventsById(state, id));
+
+  const deleteEventAndGoHome = () => {
+    dispatch(deleteEvent(id));
+    navigation.navigate('main')
+  }
 
 
   if (!event)
@@ -25,7 +32,7 @@ function DetailsEventScreen({ route }: NativeStackScreenProps<RootStackParamList
     <SafeAreaView style={styleDetails.container} edges={EDGES}>
       <DetailsEventStatistics itemEvent={event}></DetailsEventStatistics>
       <DetailsEventWidgets itemEvent={event}></DetailsEventWidgets>
-      <DetailsEventTopButtons></DetailsEventTopButtons>
+      <DetailsEventTopButtons onPress={deleteEventAndGoHome}></DetailsEventTopButtons>
       <DetailsEventList></DetailsEventList>
     </SafeAreaView>
   )
