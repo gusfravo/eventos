@@ -24,7 +24,16 @@ export const useForm = () => {
     }))
   }
 
-  return { inputs, handleFormChange }
+  const resetForm = () => {
+    setInputs({
+      name: '',
+      date: '',
+      color: '',
+      icon: ''
+    });
+  }
+
+  return { inputs, handleFormChange, resetForm }
 
 }
 

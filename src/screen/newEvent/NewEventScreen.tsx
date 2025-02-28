@@ -20,7 +20,7 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
   const dispatch = useAppDispatch();
 
   //Obtenemos las referencia del hook para gestionar los datos
-  const { inputs, handleFormChange } = useForm();
+  const { inputs, handleFormChange, resetForm } = useForm();
 
   return (
     <SafeAreaView style={styleHome.container} edges={EDGES}>
@@ -42,7 +42,7 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
         }
 
         dispatch(addEvent(event));
-
+        resetForm();
         navigator.navigation.navigate('Home');
 
       }}></NewEventButton>
