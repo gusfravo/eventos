@@ -4,12 +4,14 @@ import { ICON_INPUT } from "../constants/NewEventSelectIconData.constant";
 import IconView from "../../../shared/components/IconView/IconView";
 import { OLD_GRAY } from "../../../shared/constants";
 import { FormProps } from "../interfaces/formProps";
+import { InputsForm } from "../hooks/newEventHook";
 
 interface ColorItemProps {
   item: {
     value: string
   },
-  onPress: () => void
+  onPress: () => void,
+  inputSelected: InputsForm
 }
 
 function NewEventSelectIconForm({ inputs, handleChange }: FormProps): React.JSX.Element {
@@ -19,16 +21,17 @@ function NewEventSelectIconForm({ inputs, handleChange }: FormProps): React.JSX.
       renderItem={({ item }) => (<IconItem item={item} onPress={() => {
         inputs.icon = item.value;
         handleChange('icon', inputs.icon)
-      }} ></IconItem>)}
+      }}
+        inputSelected={inputs}></IconItem>)}
       nestedScrollEnabled={true}
       horizontal
     />
   </View>
 }
 
-const IconItem = ({ item, onPress }: ColorItemProps): React.JSX.Element => {
+const IconItem = ({ item, onPress, inputSelected }: ColorItemProps): React.JSX.Element => {
   return (
-    <Pressable style={[iconItemStyle.container]} onPress={onPress}>
+    <Pressable style={[iconItemStyle.container, inputSelected.icon == item.value ? iconItemStyle.selected : '']} onPress={onPress}>
       <IconView icon={item.value} iconViewOptions={{ background: '#F2F2F2', color: OLD_GRAY, width: 28, height: 28 }}></IconView>
     </Pressable>
   )
