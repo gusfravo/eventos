@@ -7,6 +7,7 @@ import DatePicker from "react-native-date-picker";
 
 function NewEventDateInputForm({ inputs, handleChange }: FormProps): React.JSX.Element {
   const formDateInput: Date = inputs.date ? new Date(inputs.date) : new Date();
+  const maxDate: Date = new Date(new Date().setDate(new Date().getDate() + 1));
   inputs.date = formDateInput.toISOString();
 
   return (
@@ -16,7 +17,9 @@ function NewEventDateInputForm({ inputs, handleChange }: FormProps): React.JSX.E
           inputs.date = test_.toISOString();
           handleChange('date', inputs.date);
         }}
-        mode="date"></DatePicker>
+        mode="date"
+        locale="es-MX"
+        maximumDate={maxDate}></DatePicker>
     </View>
   );
 }
