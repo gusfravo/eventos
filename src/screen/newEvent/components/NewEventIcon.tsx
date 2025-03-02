@@ -16,7 +16,8 @@ function NewEventIcon({ inputs }: { inputs: InputsForm }): React.JSX.Element {
 
 const eventIconsStyle = StyleSheet.create({
   iconEventForm: {
-    marginVertical: 32
+    marginVertical: 32,
+    marginHorizontal: 'auto'
   }
 })
 

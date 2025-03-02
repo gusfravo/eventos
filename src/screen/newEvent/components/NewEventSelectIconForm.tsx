@@ -16,11 +16,12 @@ function NewEventSelectIconForm({ inputs, handleChange }: FormProps): React.JSX.
   return <View style={selectIconFormStyle.card}>
     <FlatList
       data={ICON_INPUT}
-      numColumns={6}
       renderItem={({ item }) => (<IconItem item={item} onPress={() => {
         inputs.icon = item.value;
         handleChange('icon', inputs.icon)
       }} ></IconItem>)}
+      nestedScrollEnabled={true}
+      horizontal
     />
   </View>
 }
@@ -40,8 +41,8 @@ const selectIconFormStyle = StyleSheet.create({
   card: {
     backgroundColor: 'white',
     borderRadius: 10,
-    height: 128,
-    paddingTop: 8,
+    height: 80,
+    paddingVertical: 8,
     borderColor: '#F6F6F6',
     borderWidth: 1
   }

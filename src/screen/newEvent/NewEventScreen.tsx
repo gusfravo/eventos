@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { WHITE_SMOKE } from "../../shared/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NewEventIcon from './components/NewEventIcon';
@@ -24,29 +24,32 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
 
   return (
     <SafeAreaView style={styleHome.container} edges={EDGES}>
-      <NewEventIcon inputs={inputs}></NewEventIcon>
-      <NewEventInputForm inputs={inputs} handleChange={handleFormChange}></NewEventInputForm>
-      <NewEventDateInputForm inputs={inputs} handleChange={handleFormChange} ></NewEventDateInputForm>
-      <NewEventSelectColorForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectColorForm>
-      <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
-      <NewEventButton onPress={() => {
+      <ScrollView style={{ flex: 1, width: '100%' }}>
+        <NewEventIcon inputs={inputs}></NewEventIcon>
+        <NewEventInputForm inputs={inputs} handleChange={handleFormChange}></NewEventInputForm>
+        <NewEventDateInputForm inputs={inputs} handleChange={handleFormChange} ></NewEventDateInputForm>
+        <NewEventSelectColorForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectColorForm>
+        <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
+        <NewEventButton onPress={() => {
 
-        const event: ItemEventInterface = {
-          id: new Date().getTime().toString(),
-          color: inputs.color,
-          title: inputs.name,
-          icon: inputs.icon,
-          lastDate: inputs.date,
-          repeats: 0,
-          lastDays: 1
-        }
+          const event: ItemEventInterface = {
+            id: new Date().getTime().toString(),
+            color: inputs.color,
+            title: inputs.name,
+            icon: inputs.icon,
+            lastDate: inputs.date,
+            repeats: 0,
+            lastDays: 1
+          }
 
-        dispatch(addEvent(event));
-        resetForm();
-        navigator.navigation.navigate('Home');
+          dispatch(addEvent(event));
+          resetForm();
+          navigator.navigation.navigate('Home');
 
-      }}></NewEventButton>
-    </SafeAreaView>
+        }}></NewEventButton>
+      </ScrollView>
+
+    </SafeAreaView >
   );
 }
 

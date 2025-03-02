@@ -14,7 +14,6 @@ function NewEventSelectColorForm({ inputs, handleChange }: FormProps): React.JSX
   return <View style={selectColorFormStyle.card}>
     <FlatList
       data={COLOR_INPUT}
-      numColumns={6}
       renderItem={({ item }) => (<ColorItem item={item} onPress={() => {
         // Se ejecuta función para enviar el valor al estado de formulario.
         inputs.color = item.value;
@@ -22,6 +21,8 @@ function NewEventSelectColorForm({ inputs, handleChange }: FormProps): React.JSX
       }}></ColorItem>)
 
       }
+      horizontal
+      nestedScrollEnabled={true}
     />
   </View>
 }
@@ -41,8 +42,8 @@ const selectColorFormStyle = StyleSheet.create({
   card: {
     backgroundColor: 'white',
     borderRadius: 10,
-    height: 128,
-    paddingTop: 8,
+    height: 80,
+    paddingVertical: 8,
     borderColor: '#F6F6F6',
     borderWidth: 1
   }
