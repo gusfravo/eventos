@@ -1,13 +1,15 @@
 import React from "react";
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, Pressable, StyleSheet, View } from "react-native";
 import { COLOR_INPUT } from "../constants/NewEventSelectColorData.constants";
 import { FormProps } from "../interfaces/formProps";
+import { InputsForm } from "../hooks/newEventHook";
 
 interface ColorItemProps {
   item: {
     value: string
   },
-  onPress: () => void
+  onPress: () => void,
+  inputSelected: InputsForm
 }
 
 function NewEventSelectColorForm({ inputs, handleChange }: FormProps): React.JSX.Element {
@@ -18,7 +20,7 @@ function NewEventSelectColorForm({ inputs, handleChange }: FormProps): React.JSX
         // Se ejecuta función para enviar el valor al estado de formulario.
         inputs.color = item.value;
         handleChange('color', inputs.color);
-      }}></ColorItem>)
+      }} inputSelected={inputs}></ColorItem>)
 
       }
       horizontal
@@ -27,10 +29,14 @@ function NewEventSelectColorForm({ inputs, handleChange }: FormProps): React.JSX
   </View>
 }
 
-const ColorItem = ({ item, onPress }: ColorItemProps): React.JSX.Element => {
+const ColorItem = ({ item, onPress, inputSelected }: ColorItemProps): React.JSX.Element => {
   return (
     <Pressable
-      style={[colorItemStyle.container, { backgroundColor: item.value }]}
+      style={
+        [colorItemStyle.container,
+        { backgroundColor: item.value },
+        inputSelected.color == item.value ? colorItemStyle.selected : '']
+      }
       onPress={onPress} />
   )
 
