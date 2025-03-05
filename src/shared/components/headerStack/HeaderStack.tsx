@@ -25,9 +25,6 @@ function HeaderStack({ route }: Props): React.JSX.Element {
       <View style={[styleHeaderStack.container, {
         backgroundColor: color
       }]}>
-        <Pressable style={styleHeaderStack.button}>
-          <IconView icon={'solar:pen-bold'} iconViewOptions={{ background: TRANSPARENT, width: 32, height: 32, color: '#707070' }}></IconView>
-        </Pressable>
       </View>
     </SafeAreaView>
 
@@ -44,10 +41,4 @@ const styleHeaderStack = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },
-  button: {
-    height: 36,
-    width: 36,
-    borderRadius: '50%',
-    backgroundColor: SMOKE
-  }
 })
