@@ -13,6 +13,7 @@ import { ItemEventInterface } from "../home/interface/itemEvent.interface";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { selectEventsById } from "../../redux/events/eventsSelector";
 import { deleteEvent } from "../../redux/events/eventsSlice";
+import ModalNewEvent from "../modalNewEvent/ModalNewEvent";
 
 function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
   const id: string = route.params.event.id;
