@@ -4,13 +4,14 @@ import IconView from "../../../shared/components/IconView/IconView";
 import { WHITE_SMOKE } from "../../../shared/constants";
 
 interface Props {
-  onPress: () => void
+  onPress: () => void,
+  onPressNew: () => void
 }
 
-function DetailsEventTopButtons({ onPress }: Props): React.JSX.Element {
+function DetailsEventTopButtons({ onPress, onPressNew }: Props): React.JSX.Element {
   return (
     <View style={detailsEventTopButtonStyle.topbar}>
-      <Pressable style={detailsEventTopButtonStyle.topBarPosition} onPress={onPress}>
+      <Pressable style={detailsEventTopButtonStyle.topBarPosition} onPress={onPressNew}>
         <Text style={detailsEventTopButtonStyle.textNew}>Nuevo</Text>
       </Pressable>
       <Pressable style={detailsEventTopButtonStyle.topBarPosition} onPress={onPress}>

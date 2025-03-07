@@ -4,8 +4,11 @@ import { HAPPY_BLUE } from "../../shared/constants";
 import { StyleSheet } from "react-native";
 import InputDatePickerEvent from "./components/InputDatePickerEvent";
 
+interface Props {
+  onPress: () => void
+}
 
-const ModalNewEvent = (): JSX.Element => {
+const ModalNewEvent = ({ onPress }: Props): JSX.Element => {
   return (
 
     <View>
@@ -14,7 +17,7 @@ const ModalNewEvent = (): JSX.Element => {
           <View style={styleDetails.modalView}>
             <Text style={styleDetails.modalTittle}>Nueva ocurrencia</Text>
             <InputDatePickerEvent></InputDatePickerEvent>
-            <Pressable style={styleDetails.button}>
+            <Pressable style={styleDetails.button} onPress={onPress}>
               <Text style={styleDetails.text}>Agregar</Text>
             </Pressable>
           </View>

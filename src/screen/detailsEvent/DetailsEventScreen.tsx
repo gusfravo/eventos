@@ -14,15 +14,22 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { selectEventsById } from "../../redux/events/eventsSelector";
 import { deleteEvent } from "../../redux/events/eventsSlice";
 import ModalNewEvent from "../modalNewEvent/ModalNewEvent";
+import { useState } from "react";
 
 function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
   const id: string = route.params.event.id;
   const dispatch = useAppDispatch();
   const event: ItemEventInterface | undefined = useAppSelector(state => selectEventsById(state, id));
+  const [visibleModal, setVisibleModal] = useState(false);
+
 
   const deleteEventAndGoHome = () => {
     dispatch(deleteEvent(id));
     navigation.navigate('main')
+  }
+
+  const openModal = () => {
+    setVisibleModal(true);
   }
 
 
@@ -31,10 +38,17 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
 
   return (
     <SafeAreaView style={styleDetails.container} edges={EDGES}>
-      <ModalNewEvent></ModalNewEvent>
+      {
+        visibleModal && (
+          <ModalNewEvent onPress={() => {
+            console.log("Close modal");
+            setVisibleModal(false);
+          }} ></ModalNewEvent>
+        )
+      }
       <DetailsEventStatistics itemEvent={event}></DetailsEventStatistics>
       <DetailsEventWidgets itemEvent={event}></DetailsEventWidgets>
-      <DetailsEventTopButtons onPress={deleteEventAndGoHome}></DetailsEventTopButtons>
+      <DetailsEventTopButtons onPress={deleteEventAndGoHome} onPressNew={openModal}></DetailsEventTopButtons>
       <DetailsEventList></DetailsEventList>
     </SafeAreaView>
   )
