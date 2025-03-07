@@ -1,32 +1,66 @@
 import { JSX } from "react";
-import { Modal, View, Text } from "react-native";
-import { DEEP_GRAY, EDGES } from "../../shared/constants";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { WHITE_SMOKE } from "../../shared/constants";
+import { Modal, View, Text, Pressable } from "react-native";
+import { HAPPY_BLUE } from "../../shared/constants";
 import { StyleSheet } from "react-native";
+import InputDatePickerEvent from "./components/InputDatePickerEvent";
 
 
 const ModalNewEvent = (): JSX.Element => {
   return (
 
-    <SafeAreaView style={styleDetails.container} edges={EDGES}>
-      <Modal
-        transparent={true}>
-        <View>
-          <Text>Hola es un modal de prueba</Text>
+    <View>
+      <Modal transparent={true}>
+        <View style={styleDetails.centeredView}>
+          <View style={styleDetails.modalView}>
+            <Text style={styleDetails.modalTittle}>Nueva ocurrencia</Text>
+            <InputDatePickerEvent></InputDatePickerEvent>
+            <Pressable style={styleDetails.button}>
+              <Text style={styleDetails.text}>Agregar</Text>
+            </Pressable>
+          </View>
         </View>
       </Modal>
-    </SafeAreaView>
+    </View>
   )
 }
 
 const styleDetails = StyleSheet.create({
-  container: {
+  centeredView: {
     flex: 1,
-    paddingBottom: 16,
-    backgroundColor: DEEP_GRAY,
-    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
+  },
+  modalView: {
+    width: '100%',
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 32,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalTittle: {
+    fontSize: 20,
+    fontFamily: 'Nunito Bold'
+  },
+  button: {
+    height: 42,
+    width: '100%',
+    backgroundColor: HAPPY_BLUE,
+    borderRadius: 16,
+  },
+  text: {
+    color: 'white',
+    fontSize: 16,
+    margin: 'auto',
+    fontFamily: 'Nunito Bold'
   }
 });
 

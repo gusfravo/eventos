@@ -31,6 +31,7 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
 
   return (
     <SafeAreaView style={styleDetails.container} edges={EDGES}>
+      <ModalNewEvent></ModalNewEvent>
       <DetailsEventStatistics itemEvent={event}></DetailsEventStatistics>
       <DetailsEventWidgets itemEvent={event}></DetailsEventWidgets>
       <DetailsEventTopButtons onPress={deleteEventAndGoHome}></DetailsEventTopButtons>
