@@ -12,9 +12,10 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ItemEventInterface } from "../home/interface/itemEvent.interface";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { selectEventsById } from "../../redux/events/eventsSelector";
-import { deleteEvent } from "../../redux/events/eventsSlice";
+import { deleteEvent, updataEvent } from "../../redux/events/eventsSlice";
 import ModalNewEvent from "../modalNewEvent/ModalNewEvent";
 import { useState } from "react";
+import { addEvent } from "../../redux/events/eventsSlice";
 
 function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
   const id: string = route.params.event.id;
@@ -29,7 +30,28 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
   }
 
   const openModal = () => {
-    setVisibleModal(true);
+    //creamos el objeto y lo almecenamos en el modelo
+    //
+    if (event) {
+
+      const newChild: ItemEventInterface = {
+        id: new Date().getTime().toString(),
+        icon: event.icon,
+        color: event.color,
+        title: event.title,
+        lastDate: event.lastDate,
+        repeats: event.repeats,
+        lastDays: event.lastDays,
+        parantId: event.id,
+      }
+      const fatherEvent = { ...event };
+      fatherEvent.repeats++;
+      dispatch(updataEvent(fatherEvent));
+      dispatch(addEvent(newChild));
+
+      setVisibleModal(true);
+
+    }
   }
 
 

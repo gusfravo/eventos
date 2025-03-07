@@ -19,7 +19,7 @@ export const eventsSlice = createSlice({
       state.push(action.payload);
     },
     updataEvent: (state, action: PayloadAction<ItemEventInterface>) => {
-      const { id, icon, color, title, lastDate, lastDays, repeats } = action.payload;
+      const { id, icon, color, title, lastDate, lastDays, repeats, parantId } = action.payload;
       const foundEvent = exitsItem(state, id);
       if (foundEvent) {
         foundEvent.color = color;
@@ -28,6 +28,7 @@ export const eventsSlice = createSlice({
         foundEvent.lastDate = lastDate;
         foundEvent.repeats = repeats;
         foundEvent.icon = icon;
+        foundEvent.parantId = parantId ? parantId : undefined
       }
     },
     deleteEvent(state, action: PayloadAction<string>) {
