@@ -2,7 +2,11 @@ import { JSX } from "react";
 import { StyleSheet, View } from "react-native";
 import DatePicker from "react-native-date-picker";
 
-const InputDatePickerEvent = (): JSX.Element => {
+interface Props {
+  handleDate: (input: string) => void
+}
+
+const InputDatePickerEvent = ({ handleDate }: Props): JSX.Element => {
   const formDateInput: Date = new Date();
   const maxDate: Date = new Date(new Date().setDate(new Date().getDate() + 1));
 
@@ -10,8 +14,7 @@ const InputDatePickerEvent = (): JSX.Element => {
     <View style={StyleFormDate.container}>
       <DatePicker date={formDateInput}
         onDateChange={(test_) => {
-          //inputs.date = test_.toISOString();
-          //handleChange('date', inputs.date);
+          handleDate(test_.toISOString())
         }}
         mode="date"
         locale="es-MX"
@@ -24,7 +27,7 @@ const StyleFormDate = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
 })
 

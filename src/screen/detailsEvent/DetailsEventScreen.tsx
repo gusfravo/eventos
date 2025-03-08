@@ -22,6 +22,7 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
   const dispatch = useAppDispatch();
   const event: ItemEventInterface | undefined = useAppSelector(state => selectEventsById(state, id));
   const [visibleModal, setVisibleModal] = useState(false);
+  let datePicker: string = '';
 
 
   const deleteEventAndGoHome = () => {
@@ -30,8 +31,11 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
   }
 
   const openModal = () => {
-    //creamos el objeto y lo almecenamos en el modelo
-    //
+    setVisibleModal(true);
+
+  }
+
+  const AddChildToEvent = () => {
     if (event) {
 
       const newChild: ItemEventInterface = {
@@ -39,7 +43,7 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
         icon: event.icon,
         color: event.color,
         title: event.title,
-        lastDate: event.lastDate,
+        lastDate: datePicker,
         repeats: event.repeats,
         lastDays: event.lastDays,
         parantId: event.id,
@@ -48,12 +52,9 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
       fatherEvent.repeats++;
       dispatch(updataEvent(fatherEvent));
       dispatch(addEvent(newChild));
-
-      setVisibleModal(true);
-
     }
+    setVisibleModal(false);
   }
-
 
   if (!event)
     return (<Text>with out events</Text>)
@@ -62,10 +63,15 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
     <SafeAreaView style={styleDetails.container} edges={EDGES}>
       {
         visibleModal && (
-          <ModalNewEvent onPress={() => {
-            console.log("Close modal");
-            setVisibleModal(false);
-          }} ></ModalNewEvent>
+          <ModalNewEvent
+
+            onPress={AddChildToEvent}
+
+            handleInputDate={input => {
+              datePicker = input;
+            }}
+
+          ></ModalNewEvent>
         )
       }
       <DetailsEventStatistics itemEvent={event}></DetailsEventStatistics>

@@ -5,10 +5,12 @@ import { StyleSheet } from "react-native";
 import InputDatePickerEvent from "./components/InputDatePickerEvent";
 
 interface Props {
-  onPress: () => void
+  onPress: () => void,
+  handleInputDate: (input: string) => void
 }
 
-const ModalNewEvent = ({ onPress }: Props): JSX.Element => {
+const ModalNewEvent = ({ onPress, handleInputDate }: Props): JSX.Element => {
+
   return (
 
     <View>
@@ -16,7 +18,7 @@ const ModalNewEvent = ({ onPress }: Props): JSX.Element => {
         <View style={styleDetails.centeredView}>
           <View style={styleDetails.modalView}>
             <Text style={styleDetails.modalTittle}>Nueva ocurrencia</Text>
-            <InputDatePickerEvent></InputDatePickerEvent>
+            <InputDatePickerEvent handleDate={handleInputDate}></InputDatePickerEvent>
             <Pressable style={styleDetails.button} onPress={onPress}>
               <Text style={styleDetails.text}>Agregar</Text>
             </Pressable>
