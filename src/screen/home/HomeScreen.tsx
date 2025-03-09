@@ -18,7 +18,7 @@ import { LIST_EVENTS } from './constants/listevents.constant';
 
 function HomeScreen(tabNavigator: TabNavigatorScreenProps): React.JSX.Element {
   //Declaramos el selector del events del store
-  const events: ItemEventInterface[] = useAppSelector(selectEvents);
+  const events: ItemEventInterface[] = useAppSelector(selectEvents).filter(event => !event.parantId);
   //Declaramos el dispatch para enviar acciones al store global
   const dispatch = useAppDispatch();
 
