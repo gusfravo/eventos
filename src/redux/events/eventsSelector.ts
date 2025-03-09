@@ -1,3 +1,4 @@
+import { createSelector } from "@reduxjs/toolkit";
 import { ItemEventInterface } from "../../screen/home/interface/itemEvent.interface";
 import { RootState } from "../store";
 
@@ -8,3 +9,7 @@ export const selectEvents = (state: RootState) => state.events;
 
 export const selectEventsById = (state: RootState, id: string): ItemEventInterface | undefined => state.events.find(event => event.id == id);
 
+export const selectEventsByParentId = createSelector(
+  [selectEvents, (state: RootState, parentId: string) => parentId],
+  (events, parentId) => events.filter((item) => item.parantId = parentId)
+);
