@@ -1,12 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ItemEventInterface } from "../../home/interface/itemEvent.interface";
+import { daysFromDate, formatDate } from "../../../shared/functions";
 
 interface Props {
   itemEvent: ItemEventInterface
 }
 
 function DetailsEventWidgest({ itemEvent }: Props): React.JSX.Element {
+  const days: number = daysFromDate(itemEvent.lastDate);
+  const lastDate: string = formatDate(itemEvent.lastDate);
+
   return (
 
     <View style={[DetailsEventStyle.container, {
@@ -15,15 +19,15 @@ function DetailsEventWidgest({ itemEvent }: Props): React.JSX.Element {
 
       <View style={DetailsEventStyle.box}>
         <View style={DetailsEventStyle.boxText}>
-          <Text style={DetailsEventStyle.title}>{itemEvent.lastDays} días</Text>
+          <Text style={DetailsEventStyle.title}>{days} días</Text>
           <Text style={DetailsEventStyle.details}>Ultima vez</Text>
         </View>
       </View>
 
       <View style={DetailsEventStyle.box}>
         <View style={DetailsEventStyle.boxText}>
-          <Text style={DetailsEventStyle.title}>45 días</Text>
-          <Text style={DetailsEventStyle.details}>Promedio</Text>
+          <Text style={DetailsEventStyle.title}>{lastDate}</Text>
+          <Text style={DetailsEventStyle.details}>último evento</Text>
         </View>
       </View>
 
