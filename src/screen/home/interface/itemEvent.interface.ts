@@ -5,7 +5,7 @@ export interface ItemEventInterface {
   icon: string,
   color: string,
   title: string,
-  lastDate: String,
+  lastDate: string,
   repeats: number,
   lastDays: number,
   parantId?: string

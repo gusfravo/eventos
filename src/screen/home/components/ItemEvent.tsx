@@ -2,8 +2,13 @@ import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { ItemEventJSX } from "../interface/itemEvent.interface";
 import IconView from "../../../shared/components/IconView/IconView";
+import { daysFromDate, formatDate } from "../../../shared/functions";
 
 function ItemEvent({ item, onPress }: ItemEventJSX): React.JSX.Element {
+
+  const date: string = formatDate(item.lastDate);
+  const days: number = daysFromDate(item.lastDate);
+
   return (
     <View style={itemEventStyle.container}>
       <Pressable style={itemEventStyle.mainContainer}
@@ -11,9 +16,9 @@ function ItemEvent({ item, onPress }: ItemEventJSX): React.JSX.Element {
         <IconView icon={item.icon} iconViewOptions={{ background: item.color }} />
         <View style={[itemEventStyle.box, itemEventStyle.detailBox]}>
           <Text style={itemEventStyle.detailsBoxMainText}>{item.title}</Text>
-          <Text style={itemEventStyle.detailsSoftText}>{item.lastDate}</Text>
+          <Text style={itemEventStyle.detailsSoftText}>{date}</Text>
         </View>
-        <Text style={[itemEventStyle.box, itemEventStyle.titleDays]}>{item.lastDays} días</Text>
+        <Text style={[itemEventStyle.box, itemEventStyle.titleDays]}>{days} días</Text>
       </Pressable>
 
       <Text style={[itemEventStyle.detailsSoftText]}>Ocurrencias: {item.repeats}</Text>

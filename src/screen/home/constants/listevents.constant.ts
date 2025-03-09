@@ -6,7 +6,7 @@ export const LIST_EVENTS: ItemEventInterface[] = [
     icon: 'solar:wi-fi-router-bold',
     title: 'Reincie el modem',
     color: '#77CC00',
-    lastDate: '17/08/2024 13:45',
+    lastDate: '2025-02-27T14:30:00.000Z',
     repeats: 12,
     lastDays: 123
   }, {
@@ -14,7 +14,7 @@ export const LIST_EVENTS: ItemEventInterface[] = [
     icon: 'solar:telescope-bold',
     title: 'Corte de cabello',
     color: '#A100FF',
-    lastDate: '23/09/2024 10:25',
+    lastDate: '2025-03-05T14:30:00.000Z',
     repeats: 6,
     lastDays: 200
   },
