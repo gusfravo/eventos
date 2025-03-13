@@ -11,7 +11,7 @@ export const selectEventsById = (state: RootState, id: string): ItemEventInterfa
 
 export const selectEventsByParentId = createSelector(
   [selectEvents, (state: RootState, parentId: string) => parentId],
-  (events, parentId) => events.filter((item) => item.parantId = parentId)
+  (events, parentId) => events.filter((item) => item.parantId == parentId)
 );
 
 export const selectEventRoot = createSelector(
