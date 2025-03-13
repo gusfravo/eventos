@@ -77,7 +77,7 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
       <DetailsEventStatistics itemEvent={event}></DetailsEventStatistics>
       <DetailsEventWidgets itemEvent={event}></DetailsEventWidgets>
       <DetailsEventTopButtons onPress={deleteEventAndGoHome} onPressNew={openModal}></DetailsEventTopButtons>
-      <DetailsEventList></DetailsEventList>
+      <DetailsEventList event={event}></DetailsEventList>
     </SafeAreaView>
   )
 }

@@ -3,8 +3,19 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { WHITE_SMOKE } from "../../../shared/constants";
 import { LIST_EVENTS } from "../../home/constants/listevents.constant";
 import DetailsEventItem from "./DetailsEventItem";
+import { useAppSelector } from "../../../redux/hook";
+import { selectEventsByParentId } from "../../../redux/events/eventsSelector";
+import { ItemEventInterface } from "../../home/interface/itemEvent.interface";
 
-function DetailsEventList(): React.JSX.Element {
+interface Props {
+  event: ItemEventInterface
+}
+
+function DetailsEventList({ event }: Props): React.JSX.Element {
+  console.log("event:", event);
+  const events = useAppSelector(state => selectEventsByParentId(state, event.id));
+  console.log("childEvents", events);
+
   return (
     <View style={DetailsEventListStyle.container}>
       <FlatList
