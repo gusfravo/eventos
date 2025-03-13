@@ -60,12 +60,14 @@ const styleDetails = StyleSheet.create({
     width: '100%',
     backgroundColor: HAPPY_BLUE,
     borderRadius: 16,
+    textAlign: 'center'
   },
   text: {
     color: 'white',
     fontSize: 16,
     margin: 'auto',
-    fontFamily: 'Nunito Bold'
+    fontFamily: 'Nunito Bold',
+    textAlign: 'center'
   }
 });
 
