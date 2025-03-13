@@ -12,9 +12,7 @@ interface Props {
 }
 
 function DetailsEventList({ event }: Props): React.JSX.Element {
-  console.log("event:", event);
   const events = useAppSelector(state => selectEventsByParentId(state, event.id));
-  console.log("childEvents", events);
 
   if (events.length > 0) {
     return (
