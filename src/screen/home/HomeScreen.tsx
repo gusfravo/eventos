@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hook';
 import { selectEventRoot, selectEvents } from '../../redux/events/eventsSelector';
 import { getEvents } from '../../redux/events/eventsSlice';
 import { LIST_EVENTS } from './constants/listevents.constant';
+import EventService from '../../database/services/events.service';
 
 
 function HomeScreen(tabNavigator: TabNavigatorScreenProps): React.JSX.Element {
@@ -21,11 +22,18 @@ function HomeScreen(tabNavigator: TabNavigatorScreenProps): React.JSX.Element {
   const events: ItemEventInterface[] = useAppSelector(selectEventRoot);
   //Declaramos el dispatch para enviar acciones al store global
   const dispatch = useAppDispatch();
-
+  // Metodo para obtener los eventos almacenados en el sistema
+  const fetchEvents = async () => {
+    const data = await EventService.getAll();
+    console.log("[APP - DATABASE]", data);
+    dispatch(getEvents(data));
+  }
   //useEffect, es un hook para ejecutar algo en tu componente, este se ejecuta despues de que react a renderizado un componente
   useEffect(() => {
-    dispatch(getEvents(LIST_EVENTS))
+    fetchEvents();
+    //dispatch(getEvents(LIST_EVENTS))
   }, [dispatch])
+
 
 
   //console.log(tabNavigator)

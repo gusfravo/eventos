@@ -1,6 +1,6 @@
 module.exports = {
   presets: ['module:@react-native/babel-preset'],
-  plugins:[
+  plugins: [
     [
       'react-native-iconify/babel',
       {
@@ -38,5 +38,6 @@ module.exports = {
         ],
       },
     ],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }]
   ]
 };
