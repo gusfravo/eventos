@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { WHITE_SMOKE } from "../../../shared/constants";
+import { OLD_GRAY, WHITE_SMOKE } from "../../../shared/constants";
 import { LIST_EVENTS } from "../../home/constants/listevents.constant";
 import DetailsEventItem from "./DetailsEventItem";
 import { useAppSelector } from "../../../redux/hook";
@@ -16,17 +16,29 @@ function DetailsEventList({ event }: Props): React.JSX.Element {
   const events = useAppSelector(state => selectEventsByParentId(state, event.id));
   console.log("childEvents", events);
 
+  if (events.length > 0) {
+    return (
+      <View style={DetailsEventListStyle.container}>
+        <FlatList
+          data={events}
+          renderItem={({ item }) => <DetailsEventItem item={item} onPress={() => {
+            //console.log("Send To edit")
+          }}></DetailsEventItem>}
+          keyExtractor={item => item.id}
+        ></FlatList>
+      </View>
+    )
+
+  }
+
   return (
     <View style={DetailsEventListStyle.container}>
-      <FlatList
-        data={LIST_EVENTS}
-        renderItem={({ item }) => <DetailsEventItem item={item} onPress={() => {
-          //console.log("Send To edit")
-        }}></DetailsEventItem>}
-        keyExtractor={item => item.icon}
-      ></FlatList>
+      <Text style={DetailsEventListStyle.text}>
+        No tenemos eventos registrados
+      </Text>
     </View>
-  )
+  );
+
 }
 
 export default DetailsEventList;
@@ -39,5 +51,12 @@ const DetailsEventListStyle = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 32,
     backgroundColor: WHITE_SMOKE
+  },
+  text: {
+    marginVertical: 32,
+    textAlign: 'center',
+    fontFamily: 'Nunito Regular',
+    fontSize: 20,
+    color: OLD_GRAY
   }
 });

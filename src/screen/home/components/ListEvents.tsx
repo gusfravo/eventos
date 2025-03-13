@@ -14,7 +14,7 @@ function ListEvents({ navigation, data }: { navigation: any, data: ItemEventInte
           //console.log("Send To edit", navigation)
           navigation.navigate(`details`, { event: { id: item.id } })
         }}></ItemEvent>}
-        keyExtractor={item => item.icon}
+        keyExtractor={item => item.id}
       ></FlatList>
     </View>
   )
