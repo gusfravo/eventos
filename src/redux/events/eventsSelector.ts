@@ -13,3 +13,9 @@ export const selectEventsByParentId = createSelector(
   [selectEvents, (state: RootState, parentId: string) => parentId],
   (events, parentId) => events.filter((item) => item.parantId = parentId)
 );
+
+export const selectEventRoot = createSelector(
+  [selectEvents, (state: RootState) => state],
+  (events) => events.filter((item) => !item.parantId)
+
+)

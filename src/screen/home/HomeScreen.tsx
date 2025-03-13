@@ -11,14 +11,14 @@ import { EDGES } from '../../shared/constants';
 import { TabNavigatorScreenProps } from '../../router/interfaces';
 import { ItemEventInterface } from './interface/itemEvent.interface';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
-import { selectEvents } from '../../redux/events/eventsSelector';
+import { selectEventRoot, selectEvents } from '../../redux/events/eventsSelector';
 import { getEvents } from '../../redux/events/eventsSlice';
 import { LIST_EVENTS } from './constants/listevents.constant';
 
 
 function HomeScreen(tabNavigator: TabNavigatorScreenProps): React.JSX.Element {
   //Declaramos el selector del events del store
-  const events: ItemEventInterface[] = useAppSelector(selectEvents).filter(event => !event.parantId);
+  const events: ItemEventInterface[] = useAppSelector(selectEventRoot);
   //Declaramos el dispatch para enviar acciones al store global
   const dispatch = useAppDispatch();
 
