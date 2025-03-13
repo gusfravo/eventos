@@ -53,10 +53,10 @@ const TabNavigator = (stackNavigator: tabStackNavigatorScreenProps) => {
         title: 'Nuevo',
         tabBarIcon: newIcon
       }} />
-      <Tab.Screen name="Settings" component={HomeScreen} options={{
+      {/*<Tab.Screen name="Settings" component={HomeScreen} options={{
         title: 'Configuración',
         tabBarIcon: settingsIcon,
-      }} />
+      }} /> */}
     </Tab.Navigator>
   );
 }
