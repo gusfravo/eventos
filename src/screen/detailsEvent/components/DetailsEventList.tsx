@@ -1,7 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { OLD_GRAY, WHITE_SMOKE } from "../../../shared/constants";
-import { LIST_EVENTS } from "../../home/constants/listevents.constant";
 import DetailsEventItem from "./DetailsEventItem";
 import { useAppSelector } from "../../../redux/hook";
 import { selectEventsByParentId } from "../../../redux/events/eventsSelector";
