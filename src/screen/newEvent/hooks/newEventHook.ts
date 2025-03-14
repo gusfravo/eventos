@@ -12,7 +12,7 @@ export interface InputsForm {
 export const useForm = () => {
   const [inputs, setInputs] = useState<InputsForm>({
     name: '',
-    date: '',
+    date: new Date().toISOString(),
     color: '',
     icon: ''
   })
@@ -27,7 +27,7 @@ export const useForm = () => {
   const resetForm = () => {
     setInputs({
       name: '',
-      date: '',
+      date: new Date().toISOString(),
       color: '',
       icon: ''
     });
