@@ -23,7 +23,7 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
   const dispatch = useAppDispatch();
   const event: ItemEventInterface | undefined = useAppSelector(state => selectEventsById(state, id));
   const [visibleModal, setVisibleModal] = useState(false);
-  let datePicker: string = '';
+  let datePicker: string = new Date().toISOString();
 
 
   const deleteEventAndGoHome = async () => {
