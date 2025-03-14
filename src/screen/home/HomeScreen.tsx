@@ -26,6 +26,7 @@ function HomeScreen(tabNavigator: TabNavigatorScreenProps): React.JSX.Element {
   const fetchEvents = async () => {
     const data = await EventService.getAll();
     console.log("[APP - DATABASE]", data);
+
     dispatch(getEvents(data));
   }
   //useEffect, es un hook para ejecutar algo en tu componente, este se ejecuta despues de que react a renderizado un componente

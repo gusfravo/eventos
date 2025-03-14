@@ -10,5 +10,5 @@ export default class Event extends Model {
   @text('lastDate') lastDate!: string
   @text('repeats') repeats!: number
   @text('lastDays') lastDays!: number
-  @text('parantId') parantId!: string
+  @text('parantId') parantId!: string | undefined
 }

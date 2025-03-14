@@ -16,6 +16,7 @@ import { deleteEvent, updataEvent } from "../../redux/events/eventsSlice";
 import ModalNewEvent from "../modalNewEvent/ModalNewEvent";
 import { useState } from "react";
 import { addEvent } from "../../redux/events/eventsSlice";
+import EventService from "../../database/services/events.service";
 
 function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
   const id: string = route.params.event.id;
@@ -35,7 +36,7 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
 
   }
 
-  const AddChildToEvent = () => {
+  const AddChildToEvent = async () => {
     if (event) {
 
       const newChild: ItemEventInterface = {
@@ -48,8 +49,14 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
         lastDays: event.lastDays,
         parantId: event.id,
       }
+      const eventCreate = await EventService.createEvent(newChild);
+      newChild.id = eventCreate.id;
+
       const fatherEvent = { ...event };
       fatherEvent.repeats++;
+      await EventService.updateEvent(fatherEvent);
+
+
       dispatch(updataEvent(fatherEvent));
       dispatch(addEvent(newChild));
     }

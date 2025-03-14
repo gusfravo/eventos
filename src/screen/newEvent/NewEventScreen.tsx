@@ -13,6 +13,7 @@ import { useAppDispatch } from "../../redux/hook";
 import { addEvent } from "../../redux/events/eventsSlice";
 import { ItemEventInterface } from "../home/interface/itemEvent.interface";
 import { TabNavigatorScreenPropsNewEvent } from "../../router/interfaces";
+import EventService from "../../database/services/events.service";
 
 function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
 
@@ -22,6 +23,27 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
   //Obtenemos las referencia del hook para gestionar los datos
   const { inputs, handleFormChange, resetForm } = useForm();
 
+  const createNewEvent = async () => {
+
+    const event: ItemEventInterface = {
+      id: new Date().getTime().toString(),
+      color: inputs.color,
+      title: inputs.name,
+      icon: inputs.icon,
+      lastDate: inputs.date,
+      repeats: 1,
+      lastDays: 1
+    }
+    const eventCreate = await EventService.createEvent(event);
+    event.id = eventCreate.id;
+    dispatch(addEvent(event));
+
+    resetForm();
+
+    navigator.navigation.navigate('Home');
+
+  }
+
   return (
     <SafeAreaView style={styleHome.container} edges={EDGES}>
       <ScrollView style={{ flex: 1, width: '100%' }}>
@@ -30,23 +52,7 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
         <NewEventDateInputForm inputs={inputs} handleChange={handleFormChange} ></NewEventDateInputForm>
         <NewEventSelectColorForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectColorForm>
         <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
-        <NewEventButton onPress={() => {
-
-          const event: ItemEventInterface = {
-            id: new Date().getTime().toString(),
-            color: inputs.color,
-            title: inputs.name,
-            icon: inputs.icon,
-            lastDate: inputs.date,
-            repeats: 1,
-            lastDays: 1
-          }
-
-          dispatch(addEvent(event));
-          resetForm();
-          navigator.navigation.navigate('Home');
-
-        }}></NewEventButton>
+        <NewEventButton onPress={createNewEvent}></NewEventButton>
       </ScrollView>
 
     </SafeAreaView >
