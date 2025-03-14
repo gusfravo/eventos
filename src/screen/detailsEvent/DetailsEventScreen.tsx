@@ -26,7 +26,8 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
   let datePicker: string = '';
 
 
-  const deleteEventAndGoHome = () => {
+  const deleteEventAndGoHome = async () => {
+    await EventService.deleteEvent(id)
     dispatch(deleteEvent(id));
     navigation.navigate('main')
   }

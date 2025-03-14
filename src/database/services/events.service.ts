@@ -2,6 +2,7 @@ import { writer } from '@nozbe/watermelondb/decorators';
 import { ItemEventInterface } from '../../screen/home/interface/itemEvent.interface';
 import { database } from '../database';
 import Event from '../models/event.model';
+import { Q } from '@nozbe/watermelondb';
 
 class EventService {
 
@@ -59,6 +60,21 @@ class EventService {
         event.parantId = itemEvent.parantId
       })
     })
+  }
+
+  static async deleteEvent(itemEventID: string): Promise<void> {
+
+    await database.write(async () => {
+      const event = await database.get<Event>('events').find(itemEventID);
+      const childs = await database.get<Event>('events').query(
+        Q.where('parantId', event.id)
+      ).fetch();
+
+      await Promise.all(childs.map(child => child.destroyPermanently()))
+
+      await event.destroyPermanently();
+    })
+
   }
 
 }
