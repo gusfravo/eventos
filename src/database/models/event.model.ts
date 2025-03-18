@@ -1,5 +1,5 @@
 import { Model } from '@nozbe/watermelondb'
-import { text } from '@nozbe/watermelondb/decorators'
+import { text, field } from '@nozbe/watermelondb/decorators'
 
 export default class Event extends Model {
   static table = 'events'
@@ -8,7 +8,7 @@ export default class Event extends Model {
   @text('color') color!: string
   @text('title') title!: string
   @text('lastDate') lastDate!: string
-  @text('repeats') repeats!: number
-  @text('lastDays') lastDays!: number
+  @field('repeats') repeats!: number
+  @field('lastDays') lastDays!: number
   @text('parantId') parantId!: string | undefined
 }
