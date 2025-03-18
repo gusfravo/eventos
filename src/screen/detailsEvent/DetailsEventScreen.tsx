@@ -17,6 +17,7 @@ import ModalNewEvent from "../modalNewEvent/ModalNewEvent";
 import { useState } from "react";
 import { addEvent } from "../../redux/events/eventsSlice";
 import EventService from "../../database/services/events.service";
+import { getMostRecentDate } from "../../shared/functions/utils.events.functions";
 
 function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'details'>): React.JSX.Element {
   const id: string = route.params.event.id;
@@ -53,8 +54,11 @@ function DetailsEventScreen({ route, navigation }: NativeStackScreenProps<RootSt
       const eventCreate = await EventService.createEvent(newChild);
       newChild.id = eventCreate.id;
 
+      const dateToUpdate = getMostRecentDate(event.lastDate, newChild.lastDate);
+
       const fatherEvent = { ...event };
-      fatherEvent.repeats++;
+      fatherEvent.repeats = fatherEvent.repeats + 1;
+      fatherEvent.lastDate = dateToUpdate;
       await EventService.updateEvent(fatherEvent);
 
 
