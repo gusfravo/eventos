@@ -33,7 +33,11 @@ export const useForm = () => {
     });
   }
 
-  return { inputs, handleFormChange, resetForm }
+  const isValid = (): boolean => {
+    return inputs.name != '' && inputs.color != '' && inputs.icon != '' ? true : false;
+  }
+
+  return { inputs, handleFormChange, resetForm, isValid }
 
 }
 

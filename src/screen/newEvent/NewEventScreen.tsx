@@ -21,7 +21,7 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
   const dispatch = useAppDispatch();
 
   //Obtenemos las referencia del hook para gestionar los datos
-  const { inputs, handleFormChange, resetForm } = useForm();
+  const { inputs, handleFormChange, resetForm, isValid } = useForm();
 
   const createNewEvent = async () => {
 
@@ -52,7 +52,7 @@ function NewEventScreen(navigator: TabNavigatorScreenPropsNewEvent) {
         <NewEventDateInputForm inputs={inputs} handleChange={handleFormChange} ></NewEventDateInputForm>
         <NewEventSelectColorForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectColorForm>
         <NewEventSelectIconForm inputs={inputs} handleChange={handleFormChange} ></NewEventSelectIconForm>
-        <NewEventButton onPress={createNewEvent}></NewEventButton>
+        <NewEventButton onPress={createNewEvent} disabled={isValid}></NewEventButton>
       </ScrollView>
 
     </SafeAreaView >
