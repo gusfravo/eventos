@@ -33,7 +33,8 @@ module.exports = {
           'solar:pen-2-bold',
           'solar:pen-bold',
           'solar:pen-linear',
-          'solar:trash-bin-trash-bold'
+          'solar:trash-bin-trash-bold',
+          'solar:alt-arrow-left-bold'
           // Add more icons here
         ],
       },

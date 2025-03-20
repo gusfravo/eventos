@@ -5,14 +5,17 @@ import DetailsEventScreen from '../screen/detailsEvent/DetailsEventScreen';
 import { RootStackParamList } from './interfaces';
 import HeaderStack from '../shared/components/headerStack/HeaderStack';
 import AlertEventScreen from '../screen/alertEvent/AlertEventScreen';
-import { RouteProp } from '@react-navigation/native';
+import { NavigationProp, RouteProp } from '@react-navigation/native';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigate = (): React.JSX.Element => {
   return (
     <Stack.Navigator initialRouteName='main' screenOptions={{
       header: ({ navigation, route, options }: NativeStackHeaderProps) => {
-        return <HeaderStack route={route as RouteProp<RootStackParamList, 'details'>} />;
+        return <HeaderStack
+          route={route as RouteProp<RootStackParamList, 'details'>}
+          navigation={navigation as NavigationProp<RootStackParamList, 'details'>}
+        />;
       }
     }}>
       <Stack.Screen name="main" component={TabNavigator} options={{
