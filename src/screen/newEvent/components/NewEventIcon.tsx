@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import IconView from '../../../shared/components/IconView/IconView';
 import { InputsForm } from '../hooks/newEventHook';
+import { DEEP_GRAY, OLD_GRAY, SMOKE } from '../../../shared/constants';
 
 //TODO- Aceptar envio de cambio de icono y cambio de background
 function NewEventIcon({ inputs }: { inputs: InputsForm }): React.JSX.Element {
@@ -29,11 +30,15 @@ const eventIconsStyle = StyleSheet.create({
   iconEventForm: {
     marginVertical: 32,
     marginHorizontal: 'auto',
-    width: '80%',
+    width: '95%',
   },
   container: {
+    padding: 8,
     height: 70,
     marginVertical: 16,
+    borderColor: SMOKE,
+    borderStyle: 'solid',
+    borderWidth: 1,
   },
   mainContainer: {
     height: 56,
